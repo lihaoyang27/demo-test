@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, {useState} from "react";
 import './App.css';
+// import SearchImgBar from "./SearchImgBar";
+// import ShowImg from "./ShowImg";
+import FunShowImg from "./FunShowImg";
+import FunSearchImgBar from "./FunSearchImgBar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = ()=> {
+
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {newCity: 'toronto'}
+    // }
+    const [newCity, setNewCity] = useState('toronto')
+
+    const handleChange = (newCity) => {
+        console.log('new data from Search', newCity)
+        setNewCity(newCity)
+    }
+
+        return (
+            <div className="App">
+                <FunSearchImgBar getChange={handleChange}/>
+                <FunShowImg getNewCity={newCity}/>
+            </div>
+        );
 }
 
 export default App;
